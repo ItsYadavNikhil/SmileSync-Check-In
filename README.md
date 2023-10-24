@@ -2,7 +2,7 @@
 SmileSync Check-In is web app powered by Flask, Python, and JavaScript. Utilizing advanced computer vision, it redefines attendance management. With a user-friendly interface and facial recognition, attendees smile for the camera, and data is securely stored in CSV files. Simplifying attendance tracking, it enhances efficiency for educational institutions and organizations.
 
 # Setup Process
-things you need to do first is to copy code from GitHub, download Python dependencies, and install JavaScript dependencies from the terminal:
+things you need to do first is to copy code from GitHub, create Python virtual enviroment, download Python dependencies, and install JavaScript dependencies from the terminal:
 
 1. *Clone the GitHub Repository:*
    - Open your terminal.
