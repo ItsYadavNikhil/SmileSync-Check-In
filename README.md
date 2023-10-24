@@ -9,7 +9,7 @@ things you need to do first is to copy code from GitHub, download Python depende
    - Change to the directory where you want to clone the repository using the `cd` command.
    - Use the `git clone` command to clone the GitHub repository. For example:
      
-     # git clone https://github.com/yourusername/yourrepository.git
+     # git clone https://github.com/ItsYadavNikhil/SmileSync-Check-In.git
 
 
 2. Setup Python environment for your SmileSync Check-In web app, you can create a virtual environment. Virtual environments are recommended to keep your project's dependencies separate from the system-wide Python installation. Here are the steps:
