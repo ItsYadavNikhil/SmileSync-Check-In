@@ -50,7 +50,7 @@ things you need to do first is to copy code from GitHub, create Python virtual e
      
      # npm install
 
-You should now have all the required Python and JavaScript dependencies installed in your project folder. Make sure to replace the GitHub repository URL with the actual URL of the repository you want to clone.
+You should now have all the required Python and JavaScript dependencies installed in your project folder.
 
 5. You can add faces for attendance in "known_faces" folder
 
