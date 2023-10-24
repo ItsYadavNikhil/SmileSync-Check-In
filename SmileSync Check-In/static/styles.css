@@ -1,0 +1,152 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set background color */
+/* Set background gradient */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #66a7eb, #5bd0d4); /* Gradient background */
+    color: #000000; /* Text color */
+    line-height: 1.6;
+    text-align: center; /* Center-align text in the body */
+    /* Modify other text-related elements as needed */
+}
+h1, h2, p, label, .file-not-present {
+    color: black; /* Set text color to black */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Style the header */
+header {
+    background-color: #71cfef;
+    color: #353232;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 20px; /* Move the header slightly upward */
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+/* Style the actions section */
+#actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#take-attendance,
+#show-attendance {
+    background-color: #3498db;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 45%;
+    margin-top: 20px;
+}
+
+#take-attendance h2,
+#show-attendance h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Center the "Take Attendance" button to the left and "Show Attendance" to the right */
+#take-attendance {
+    margin-right: auto;
+}
+
+#show-attendance {
+    margin-left: auto;
+}
+
+.attendance-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.large-button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.large-button:hover {
+    background-color: #003c80;
+}
+
+/* Style the attendance data section */
+#attendance-data {
+    margin: 30px 0;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Style the "File Not Present" message */
+.file-not-present {
+    color: red;
+}
+
+/* Style the HTML table */
+table {
+    font-family: "Times New Roman", Times, serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+}
+
+table th,
+table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+
+table th {
+    background-color: #3498db;
+    color: #000000;
+}
+
+/* Add a class for the developers heading */
+.developers-heading {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Change the font style to italic for developers' names */
+.developers-heading p {
+    font-style: italic;
+}

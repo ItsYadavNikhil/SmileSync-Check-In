@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #66a7eb, #5bd0d4); /* Restore the gradient background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #66a7eb, #5bd0d4); /* Background same as the webpage */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            background-color: #3498db; /* Blue header */
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        #actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Create space between the forms */
+            margin: 30px 0;
+        }
+
+        .section-selection-form,
+        .attendance-form {
+            width: 45%; /* Set a fixed width for both forms */
+            padding: 20px;
+            background: #3498db;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        select, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .large-button {
+            background-color: #186faa; /* Blue button */
+            color: #000000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .large-button:hover {
+            background-color: #2a7aa6; /* Slightly darker blue on hover */
+        }
+
+        #attendance-data {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Style the table */
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table th, table td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #3498db; /* Blue header background */
+            color: #fff;
+        }
+
+        /* Developers heading */
+        .developers-heading {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .developers-heading p {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SmileSync Check-In</h1>
+            <p>Effortlessly track and manage attendance.</p>
+        </header>
+
+        <div id="actions">
+            <!-- Form to select a section for taking attendance -->
+            <form class="section-selection-form" action="/run_script" method="post">
+                <label for="selected_section">Select a section to take attendance:</label>
+                <select id="selected_section" name="selected_section">
+                    <option value="" selected disabled>Select a section</option>
+                    {% for section in sections %}
+                        <option value="{{ section }}">{{ section }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="large-button">Take Attendance</button>
+            </form>
+
+            <!-- Form to select a section and date to view attendance -->
+            <form class="attendance-form" action="/show_section_attendance" method="post">
+                <div>
+                    <label for="selected_section_view">Select a section:</label>
+                    <select id="selected_section_view" name="selected_section_view">
+                        <option value="" selected disabled>Select a section</option>
+                        {% for section in sections %}
+                            <option value="{{ section }}">{{ section }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="selected_date">Select a date:</label>
+                    <input type="date" id="selected_date" name="selected_date" style="font-size: 16px; padding: 8px;">
+                </div>
+                
+                <button type="submit" class="large-button">Show Attendance</button>
+            </form>
+        </div>
+
+        <section id="attendance-data">
+            {% if attendance_table %}
+                <h2>Attendance for the selected section and date:</h2>
+                <table>
+                    {{ attendance_table | safe }}
+                </table>
+            {% elif message %}
+                <p class="file-not-present">{{ message }}</p>
+            {% endif %}
+        </section>
+        
+        <!-- Developers heading -->
+        <div class="developers-heading">
+            <p>Developer:</p>
+            <p>Nikhil Yadav</p>
+        </div>
+    </div>
+</body>
+</html>
